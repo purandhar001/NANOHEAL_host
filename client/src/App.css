@@ -1,0 +1,44 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5; /* Match the background of login/signup */
+}
+
+/* This styles the container for the "Don't have an account? Sign Up" text 
+  that appears below the login/signup forms.
+*/
+.toggle-auth {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #555;
+}
+
+.toggle-auth p {
+  margin: 0;
+}
+
+/* This styles the button to look like a link, which is a common
+  UI pattern for this kind of toggle.
+*/
+.toggle-auth button {
+  background: none;
+  border: none;
+  color: #1877f2; /* A standard link blue color */
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem; /* Match the surrounding text */
+  margin-left: 0.25rem;
+}
+
+.toggle-auth button:hover {
+  text-decoration: underline;
+}
