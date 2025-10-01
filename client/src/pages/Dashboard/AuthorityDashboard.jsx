@@ -23,8 +23,8 @@ const AuthorityDashboard = ({ handleLogout }) => {
     setError('');
     try {
       const [reportsRes, doctorsRes] = await Promise.all([
-        fetch('http://localhost:3001/api/reports'),
-        fetch('http://localhost:3001/api/doctors')
+        fetch('https://nanoheal-host.onrender.com/api/reports'),
+        fetch('https://nanoheal-host.onrender.com/api/doctors')
       ]);
       if (!reportsRes.ok || !doctorsRes.ok) throw new Error('Failed to fetch data from the server');
       const reportsData = await reportsRes.json();
@@ -47,7 +47,7 @@ const AuthorityDashboard = ({ handleLogout }) => {
     e.preventDefault();
     const symptomsArray = newSymptoms.split(',').map(symptom => symptom.trim());
     try {
-      await fetch('http://localhost:3001/api/reports/create', {
+      await fetch('https://nanoheal-host.onrender.com/api/reports/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -69,7 +69,7 @@ const AuthorityDashboard = ({ handleLogout }) => {
   const handleCreateDoctor = async (e) => {
     e.preventDefault();
     try {
-      await fetch('http://localhost:3001/api/doctors/create', {
+      await fetch('https://nanoheal-host.onrender.com/api/doctors/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: newDoctorName, email: newDoctorEmail, specialization: newDoctorSpec }),
@@ -87,7 +87,7 @@ const AuthorityDashboard = ({ handleLogout }) => {
   const handleUpdateCases = async (reportId, casesToAdd) => {
     if (!casesToAdd || casesToAdd <= 0) return;
     try {
-      await fetch(`http://localhost:3001/api/reports/update/${reportId}`, {
+      await fetch(`https://nanoheal-host.onrender.com/api/reports/update/${reportId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ casesToAdd: parseInt(casesToAdd, 10) }),

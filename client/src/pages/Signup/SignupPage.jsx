@@ -19,7 +19,7 @@ const SignupPage = ({ onSignupSuccess, onToggleAuth }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/signup', {
+      const response = await fetch('https://nanoheal-host.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password, location, role }),
